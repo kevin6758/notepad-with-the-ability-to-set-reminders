@@ -1,0 +1,34 @@
+// Define a function to create a new reminder
+function createReminder(notebook, message, date) {
+    // Create a new object to store the reminder
+    var reminder = {
+        message: message,
+        date: date
+    };
+    // Add the reminder to the notebook
+    notebook.push(reminder);
+}
+
+// Define a function to check for upcoming reminders
+function checkReminders(notebook) {
+    // Get the current date
+    var now = new Date();
+    // Loop through all reminders in the notebook
+    for (var i = 0; i < notebook.length; i++) {
+        var reminder = notebook[i];
+        // Check if the reminder date is in the future
+        if (reminder.date > now) {
+            // Log the reminder message to the console
+            console.log(reminder.message);
+        }
+    }
+}
+
+// Create an empty notebook to store reminders
+var notebook = [];
+
+// Create a reminder for a meeting at 10am tomorrow
+createReminder(notebook, "Meeting at 10am", new Date(Date.now() + 24 * 60 * 60 * 1000));
+
+// Check for upcoming reminders
+checkReminders(notebook);
